@@ -18,13 +18,15 @@ import com.demo.dto.ProductDTO;
 import com.demo.service.ProductService;
 
 @RestController
-@RequestMapping("/api/v1/products")
+// @RequestMapping("/api/v1/products")
+@RequestMapping(value = "/api/v1/products", produces = MediaType.APPLICATION_NDJSON_VALUE)
 public class ProductController {
 	
 	 @Autowired
 	 private ProductService service;
 	 
 	// @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+	// @GetMapping(produces = MediaType.APPLICATION_NDJSON_VALUE)
 	@GetMapping
 	public Flux<ProductDTO> getProducts(){
 	    return service.getProducts();
